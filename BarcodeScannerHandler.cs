@@ -30,9 +30,9 @@ public class BarcodeScannerHandler : IDisposable
     #region Properties
 
     /// <summary>
-    /// Single instance of open serial port in the device
+    /// Instance of open serial port in the device
     /// </summary>
-    private SerialPort SingalSerialPort { get; set; }
+    private SerialPort SerialPort { get; set; }
 
     /// <summary>
     /// Reading action fired when user scan barcode
@@ -52,7 +52,7 @@ public class BarcodeScannerHandler : IDisposable
     {
         try
         {
-            SingalSerialPort = new SerialPort( comProp.PortName,
+            SerialPort = new SerialPort( comProp.PortName,
                                                comProp.BaudRate,
                                                comProp.Parity,
                                                comProp.DataBits,
@@ -119,7 +119,7 @@ public class BarcodeScannerHandler : IDisposable
     /// </summary>
     private void CloseHandler()
     {
-        Thread safeClose = new(new ThreadStart(SingalSerialPort.Close));
+        Thread safeClose = new(new ThreadStart(SerialPort.Close));
         safeClose.SetApartmentState( ApartmentState.STA );
         safeClose.Start();
         safeClose.Join();
