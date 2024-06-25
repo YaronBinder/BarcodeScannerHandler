@@ -3,7 +3,7 @@ using System.IO.Ports;
 using System.Threading;
 using System.Windows;
 
-namespace ClassRunner.common;
+namespace BarcodeScanner;
 public class BarcodeScannerHandler : IDisposable
 {
     #region Constructor
@@ -53,10 +53,10 @@ public class BarcodeScannerHandler : IDisposable
         try
         {
             SerialPort = new SerialPort( comProp.PortName,
-                                               comProp.BaudRate,
-                                               comProp.Parity,
-                                               comProp.DataBits,
-                                               comProp.StopBits );
+                                         comProp.BaudRate,
+                                         comProp.Parity,
+                                         comProp.DataBits,
+                                         comProp.StopBits );
             OpenConnection( SingalSerialPort );
         }
         catch ( Exception e )
