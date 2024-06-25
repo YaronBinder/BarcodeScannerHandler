@@ -1,6 +1,6 @@
 ﻿using System.IO.Ports;
 
-namespace ClassRunner.common;
+namespace BarcodeScanner;
 public class COMProperties( string portName, Parity parity, int baudRate, int dataBits, StopBits stopBits )
 {
     #region Properties
